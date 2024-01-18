@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Guess the Color Game</title>
+</head>
+<body>
+  <!-- Update index.html to include a timer display -->
+  <div id="game-container">
+    <div id="timer"></div>
+    <div id="score">Score: <span id="score-counter">0</span></div>
+    <button id="next-level" onclick="nextLevel()" disabled>Next Level</button>
+    <!-- Add a button for color-blind mode -->
+<button id="color-blind-toggle" onclick="toggleColorBlindMode()">Color-Blind Mode</button>
 
+  </div>
+
+  <div id="game-container">
+    <div id="color-display"></div>
+    <div id="color-options"></div>
+    <div id="result-message"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
