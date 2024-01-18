@@ -23,9 +23,11 @@ function initializeGame() {
   targetColor = getRandomColor();
   resultMessage = document.getElementById('result-message');
   resultMessage.textContent = '';
-  resetTimer();  // Reset the timer when initializing the game
+  resetTimer();
   displayColor();
+  // Display color options with fade-in animation
   displayColorOptions();
+  document.querySelectorAll('.color-option').forEach(option => option.classList.add('fade-in'));
   updateLevelText();
   updateScore();
 }
@@ -210,21 +212,23 @@ function displayColorOptions() {
   });
 }
 
-
-
-
 function checkGuess(guess) {
   if (guess === targetColor) {
     resultMessage.textContent = 'Correct! Well done.';
     clearInterval(timerInterval);
     awardPoints();
     setTimeout(nextLevel, 1000);
-    document.getElementById('next-level').textContent = 'Next Level';
-    document.getElementById('next-level').disabled = false;
   } else {
     resultMessage.textContent = 'Incorrect. Try again!';
     deductPoints();
-    document.getElementById('next-level').disabled = true;
+
+    // Apply shake animation to incorrect options
+    document.querySelectorAll('.color-option').forEach(option => option.classList.add('shake'));
+
+    // Remove the shake class after the animation ends
+    setTimeout(() => {
+      document.querySelectorAll('.color-option').forEach(option => option.classList.remove('shake'));
+    }, 500); // Match the duration of the shake animation
   }
 }
 
