@@ -33,3 +33,47 @@ body {
   font-size: 18px;
 }
 
+.color-option {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out; /* Add opacity transition */
+  opacity: 0; /* Start with opacity 0 */
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.fade-in {
+  animation: fadeIn 0.5s ease-in-out; /* Add a fade-in animation */
+}
+
+.color-option.shake {
+  animation: shake 0.5s ease-in-out; /* Add a shake animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+
